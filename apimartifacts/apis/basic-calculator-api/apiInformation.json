@@ -3,7 +3,7 @@
     "path": "calc",
     "apiRevision": "1",
     "authenticationSettings": {},
-    "description": "Arithmetics is just a call away! Tes",
+    "description": "Arithmetics is just a call away! Test",
     "isCurrent": true,
     "displayName": "Basic Calculator API",
     "protocols": [
