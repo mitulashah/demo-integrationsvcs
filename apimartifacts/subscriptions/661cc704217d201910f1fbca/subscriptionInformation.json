@@ -1,8 +1,0 @@
-{
-  "properties": {
-    "scope": "/subscriptions/aca13fb1-c474-4fc9-9ea3-10c5a1738491/resourceGroups/rg-demo-integrationsvcs/providers/Microsoft.ApiManagement/service/apim-demo-integrationsvcs/products/demo-product",
-    "allowTracing": false,
-    "ownerId": "/subscriptions/aca13fb1-c474-4fc9-9ea3-10c5a1738491/resourceGroups/rg-demo-integrationsvcs/providers/Microsoft.ApiManagement/service/apim-demo-integrationsvcs/users/1",
-    "state": "active"
-  }
-}
