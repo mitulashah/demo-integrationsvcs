@@ -9,13 +9,15 @@ paths:
   /people/:
     get:
       summary: Get People
+      description: Get People
       operationId: get-people
       responses:
         '200':
-          description: 
+          description: ''
   '/people/{id}/':
     get:
       summary: Get People by ID
+      description: Get People by ID
       operationId: get-people-by-id
       parameters:
         - name: id
@@ -25,24 +27,27 @@ paths:
             type: ''
       responses:
         '200':
-          description: 
+          description: ''
   /:
     get:
       summary: Get Root
+      description: Get Root
       operationId: get-root
       responses:
         '200':
-          description: 
+          description: ''
   /films/:
     get:
       summary: Get Films
+      description: Get Films
       operationId: get-films
       responses:
         '200':
-          description: 
+          description: ''
   '/films/{id}/':
     get:
       summary: Get Films by ID
+      description: Get Films by ID
       operationId: get-films-by-id
       parameters:
         - name: id
@@ -52,17 +57,19 @@ paths:
             type: ''
       responses:
         '200':
-          description: 
+          description: ''
   /starships/:
     get:
       summary: Get Starships
+      description: Get Starships
       operationId: get-starships
       responses:
         '200':
-          description: 
+          description: ''
   '/starships/{id}/':
     get:
       summary: Get Starships by ID
+      description: Get Starships by ID
       operationId: get-starships-by-id
       parameters:
         - name: id
@@ -72,17 +79,19 @@ paths:
             type: ''
       responses:
         '200':
-          description: 
+          description: ''
   /vehicles/:
     get:
       summary: Get Vehicles
+      description: Get Vehicles
       operationId: get-vehicles
       responses:
         '200':
-          description: 
+          description: ''
   '/vehicles/{id}/':
     get:
       summary: Get Vehicles by ID
+      description: Get Vehicles by ID
       operationId: get-vehicles-by-id
       parameters:
         - name: id
@@ -92,17 +101,19 @@ paths:
             type: ''
       responses:
         '200':
-          description: 
+          description: ''
   /species/:
     get:
       summary: Get Species
+      description: Get Species
       operationId: get-species
       responses:
         '200':
-          description: 
+          description: ''
   '/species/{id}/':
     get:
       summary: Get Species by ID
+      description: Get Species by ID
       operationId: get-species-by-id
       parameters:
         - name: id
@@ -112,17 +123,19 @@ paths:
             type: ''
       responses:
         '200':
-          description: 
+          description: ''
   /planets/:
     get:
       summary: Get Planets
+      description: Get Planets
       operationId: get-planets
       responses:
         '200':
-          description: 
+          description: ''
   '/planets/{id}/':
     get:
       summary: Get Planets by ID
+      description: Get Planets by ID
       operationId: get-planets-by-id
       parameters:
         - name: id
@@ -132,14 +145,15 @@ paths:
             type: ''
       responses:
         '200':
-          description: 
+          description: ''
   /test:
     get:
       summary: Get Test
+      description: Get Test
       operationId: get-test
       responses:
         '200':
-          description: 
+          description: ''
 components:
   securitySchemes:
     apiKeyHeader:
