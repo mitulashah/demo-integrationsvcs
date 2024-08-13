@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Basic Calculator API
-  description: Arithmetics is just a call away! Test
+  description: Arithmetics is just a call away! Test 1
   version: '1.0'
 servers:
   - url: http://apim-demo-integrationsvcs.azure-api.net/calc
