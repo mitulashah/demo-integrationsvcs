@@ -26,6 +26,9 @@
 	</backend>
 	<outbound>
 		<base />
+		<set-header name="mitul" exists-action="override">
+			<value>is cool</value>
+		</set-header>
 	</outbound>
 	<on-error>
 		<base />
