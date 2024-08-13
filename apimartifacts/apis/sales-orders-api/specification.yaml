@@ -9,10 +9,11 @@ paths:
   /:
     get:
       summary: Sales Order Headers
+      description: Sales Order Headers
       operationId: sales-order-headers
       responses:
         '200':
-          description: 
+          description: ''
 components:
   securitySchemes:
     apiKeyHeader:
