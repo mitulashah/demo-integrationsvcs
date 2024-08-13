@@ -1,0 +1,155 @@
+openapi: 3.0.1
+info:
+  title: Star Wars API
+  description: ''
+  version: '1.0'
+servers:
+  - url: https://apim-demo-integrationsvcs.azure-api.net/sw/test
+paths:
+  /people/:
+    get:
+      summary: Get People
+      operationId: get-people
+      responses:
+        '200':
+          description: 
+  '/people/{id}/':
+    get:
+      summary: Get People by ID
+      operationId: get-people-by-id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 
+  /:
+    get:
+      summary: Get Root
+      operationId: get-root
+      responses:
+        '200':
+          description: 
+  /films/:
+    get:
+      summary: Get Films
+      operationId: get-films
+      responses:
+        '200':
+          description: 
+  '/films/{id}/':
+    get:
+      summary: Get Films by ID
+      operationId: get-films-by-id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 
+  /starships/:
+    get:
+      summary: Get Starships
+      operationId: get-starships
+      responses:
+        '200':
+          description: 
+  '/starships/{id}/':
+    get:
+      summary: Get Starships by ID
+      operationId: get-starships-by-id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 
+  /vehicles/:
+    get:
+      summary: Get Vehicles
+      operationId: get-vehicles
+      responses:
+        '200':
+          description: 
+  '/vehicles/{id}/':
+    get:
+      summary: Get Vehicles by ID
+      operationId: get-vehicles-by-id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 
+  /species/:
+    get:
+      summary: Get Species
+      operationId: get-species
+      responses:
+        '200':
+          description: 
+  '/species/{id}/':
+    get:
+      summary: Get Species by ID
+      operationId: get-species-by-id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 
+  /planets/:
+    get:
+      summary: Get Planets
+      operationId: get-planets
+      responses:
+        '200':
+          description: 
+  '/planets/{id}/':
+    get:
+      summary: Get Planets by ID
+      operationId: get-planets-by-id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 
+  /test:
+    get:
+      summary: Get Test
+      operationId: get-test
+      responses:
+        '200':
+          description: 
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]

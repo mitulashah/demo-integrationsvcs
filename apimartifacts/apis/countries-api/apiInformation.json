@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "path": "countries",
+    "apiRevision": "1",
+    "authenticationSettings": {},
+    "description": "Countries API",
+    "isCurrent": true,
+    "displayName": "Countries API",
+    "protocols": [
+      "https"
+    ],
+    "serviceUrl": "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso",
+    "subscriptionKeyParameterNames": {
+      "header": "Ocp-Apim-Subscription-Key",
+      "query": "subscription-key"
+    },
+    "subscriptionRequired": true,
+    "type": "soap"
+  }
+}
