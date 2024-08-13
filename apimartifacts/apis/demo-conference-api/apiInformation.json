@@ -1,0 +1,21 @@
+{
+  "properties": {
+    "path": "conference",
+    "apiRevision": "2",
+    "apiRevisionDescription": "This is my rev",
+    "authenticationSettings": {},
+    "description": "A sample API with information related to a technical conference.  The available resources  include *Speakers*, *Sessions* and *Topics*.  A single write operation is available to provide  feedback on a session.   Demo from Mitul",
+    "isCurrent": true,
+    "displayName": "Demo Conference API",
+    "protocols": [
+      "http",
+      "https"
+    ],
+    "serviceUrl": "https://conferenceapi.azurewebsites.net",
+    "subscriptionKeyParameterNames": {
+      "header": "Ocp-Apim-Subscription-Key",
+      "query": "subscription-key"
+    },
+    "subscriptionRequired": true
+  }
+}

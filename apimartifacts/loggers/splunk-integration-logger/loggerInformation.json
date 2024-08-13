@@ -1,0 +1,12 @@
+{
+  "properties": {
+    "loggerType": "azureEventHub",
+    "credentials": {
+      "endpointAddress": "eh-demo-integrationsvcs.servicebus.windows.net",
+      "identityClientId": "{{662035c8217d2013dc209248}}",
+      "name": "api-monitoring"
+    },
+    "description": "adding a new logger with system assigned managed identity",
+    "isBuffered": true
+  }
+}

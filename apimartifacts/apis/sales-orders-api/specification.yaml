@@ -1,0 +1,28 @@
+openapi: 3.0.1
+info:
+  title: Sales Orders API
+  description: ''
+  version: '1.0'
+servers:
+  - url: https://apim-demo-integrationsvcs.azure-api.net/salesorders
+paths:
+  /:
+    get:
+      summary: Sales Order Headers
+      operationId: sales-order-headers
+      responses:
+        '200':
+          description: 
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]

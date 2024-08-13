@@ -1,0 +1,10 @@
+<!--
+    IMPORTANT:
+    - Policy fragment are included as-is whenever they are referenced.
+    - If using variables. Ensure they are setup before use.
+    - Copy and paste your code here or simply start coding
+-->
+<fragment>
+	<rate-limit calls="5" renewal-period="60" />
+	<quota-by-key calls="100" bandwidth="40000" renewal-period="300" increment-condition="@(context.Response.StatusCode >= 200 && context.Response.StatusCode < 400)" counter-key="@(context.Request.IpAddress)" />
+</fragment>

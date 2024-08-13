@@ -1,0 +1,8 @@
+{
+  "properties": {
+    "displayName": "nocodeapi-sp",
+    "secret": false,
+    "tags": [],
+    "value": "%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun"
+  }
+}

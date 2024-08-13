@@ -1,0 +1,19 @@
+{
+  "properties": {
+    "path": "gh",
+    "apiRevision": "1",
+    "authenticationSettings": {},
+    "description": "",
+    "isCurrent": true,
+    "displayName": "GitHub API",
+    "protocols": [
+      "https"
+    ],
+    "serviceUrl": "https://apim-poc-graphql.azure-api.net/gh/user",
+    "subscriptionKeyParameterNames": {
+      "header": "Ocp-Apim-Subscription-Key",
+      "query": "subscription-key"
+    },
+    "subscriptionRequired": true
+  }
+}

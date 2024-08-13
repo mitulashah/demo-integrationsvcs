@@ -1,0 +1,91 @@
+<policies>
+	<inbound>
+		<base />
+		<rewrite-uri template="/websamples.countryinfo/CountryInfoService.wso" copy-unmatched-params="false" />
+		<set-header name="SOAPAction" exists-action="override">
+			<value>"FullCountryInfo"</value>
+		</set-header>
+		<set-body template="liquid">
+			<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://www.oorsprong.org/websamples.countryinfo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+				<soap:Body>
+					<FullCountryInfo>
+                {% if body.fullCountryInfo.sCountryISOCode %}
+                <sCountryISOCode>{{body.fullCountryInfo.sCountryISOCode}}</sCountryISOCode>
+                {% else %}
+                <sCountryISOCode xsi:nil="true" />
+                {% endif %}
+            </FullCountryInfo>
+				</soap:Body>
+			</soap:Envelope>
+		</set-body>
+		<set-header name="Content-Type" exists-action="override">
+			<value>text/xml</value>
+		</set-header>
+	</inbound>
+	<backend>
+		<base />
+	</backend>
+	<outbound>
+		<base />
+		<choose>
+			<when condition="@(context.Response.StatusCode < 400)">
+				<set-body template="liquid">
+        {
+            "fullCountryInfoResponse": 
+            {
+                "fullCountryInfoResult": 
+                {
+                    "sISOCode": {% if body.envelope.body.FullCountryInfoResponse.FullCountryInfoResult.sISOCode %}"{{body.envelope.body.FullCountryInfoResponse.FullCountryInfoResult.sISOCode | Replace: '\r', '\r' | Replace: '\n', '\n' | Replace: '([^\\](\\\\)*)"', '$1\"'}}"{% else %} null {% endif %},
+                    "sName": {% if body.envelope.body.FullCountryInfoResponse.FullCountryInfoResult.sName %}"{{body.envelope.body.FullCountryInfoResponse.FullCountryInfoResult.sName | Replace: '\r', '\r' | Replace: '\n', '\n' | Replace: '([^\\](\\\\)*)"', '$1\"'}}"{% else %} null {% endif %},
+                    "sCapitalCity": {% if body.envelope.body.FullCountryInfoResponse.FullCountryInfoResult.sCapitalCity %}"{{body.envelope.body.FullCountryInfoResponse.FullCountryInfoResult.sCapitalCity | Replace: '\r', '\r' | Replace: '\n', '\n' | Replace: '([^\\](\\\\)*)"', '$1\"'}}"{% else %} null {% endif %},
+                    "sPhoneCode": {% if body.envelope.body.FullCountryInfoResponse.FullCountryInfoResult.sPhoneCode %}"{{body.envelope.body.FullCountryInfoResponse.FullCountryInfoResult.sPhoneCode | Replace: '\r', '\r' | Replace: '\n', '\n' | Replace: '([^\\](\\\\)*)"', '$1\"'}}"{% else %} null {% endif %},
+                    "sContinentCode": {% if body.envelope.body.FullCountryInfoResponse.FullCountryInfoResult.sContinentCode %}"{{body.envelope.body.FullCountryInfoResponse.FullCountryInfoResult.sContinentCode | Replace: '\r', '\r' | Replace: '\n', '\n' | Replace: '([^\\](\\\\)*)"', '$1\"'}}"{% else %} null {% endif %},
+                    "sCurrencyISOCode": {% if body.envelope.body.FullCountryInfoResponse.FullCountryInfoResult.sCurrencyISOCode %}"{{body.envelope.body.FullCountryInfoResponse.FullCountryInfoResult.sCurrencyISOCode | Replace: '\r', '\r' | Replace: '\n', '\n' | Replace: '([^\\](\\\\)*)"', '$1\"'}}"{% else %} null {% endif %},
+                    "sCountryFlag": {% if body.envelope.body.FullCountryInfoResponse.FullCountryInfoResult.sCountryFlag %}"{{body.envelope.body.FullCountryInfoResponse.FullCountryInfoResult.sCountryFlag | Replace: '\r', '\r' | Replace: '\n', '\n' | Replace: '([^\\](\\\\)*)"', '$1\"'}}"{% else %} null {% endif %},
+                    "languages": 
+                    [
+                        {% JSONArrayFor item in body.envelope.body.FullCountryInfoResponse.FullCountryInfoResult.Languages -%}
+                        {
+                            "sISOCode": {% if item.sISOCode %}"{{item.sISOCode | Replace: '\r', '\r' | Replace: '\n', '\n' | Replace: '([^\\](\\\\)*)"', '$1\"'}}"{% else %} null {% endif %},
+                            "sName": {% if item.sName %}"{{item.sName | Replace: '\r', '\r' | Replace: '\n', '\n' | Replace: '([^\\](\\\\)*)"', '$1\"'}}"{% else %} null {% endif %}
+                        }
+                        {% endJSONArrayFor -%}
+                    ]
+                }
+            }
+        }</set-body>
+			</when>
+			<otherwise>
+				<set-variable name="old-body" value="@(context.Response.Body.As<string>(preserveContent: true))" />
+				<!-- Error response as per https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#7102-error-condition-responses -->
+				<set-body template="liquid">{
+            "error": {
+                "code": "{{body.envelope.body.fault.faultcode}}",
+                "message": "{{body.envelope.body.fault.faultstring}}"
+            }
+        }</set-body>
+				<choose>
+					<when condition="@(string.IsNullOrEmpty(context.Response.Body.As<JObject>(preserveContent: true)["error"]["code"].ToString()) && string.IsNullOrEmpty(context.Response.Body.As<JObject>(preserveContent: true)["error"]["message"].ToString()))">
+						<set-body>@{
+                    var newResponseBody = new JObject();
+                    newResponseBody["error"] = new JObject();
+                    newResponseBody["error"]["code"] = "InvalidErrorResponseBody";
+                    if (string.IsNullOrEmpty((string)context.Variables["old-body"]))
+                    {
+                        newResponseBody["error"]["message"] = "The error response body was not a valid SOAP error response. The response body was empty.";
+                    }
+                    else
+                    {
+                        newResponseBody["error"]["message"] = "The error response body was not a valid SOAP error response. The response body was: '" + context.Variables["old-body"] + "'.";
+                    }
+                    return newResponseBody.ToString();
+                }</set-body>
+					</when>
+				</choose>
+			</otherwise>
+		</choose>
+		<set-header name="Content-Type" exists-action="override">
+			<value>application/json</value>
+		</set-header>
+	</outbound>
+</policies>

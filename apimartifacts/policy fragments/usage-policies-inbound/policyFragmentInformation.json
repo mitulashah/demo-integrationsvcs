@@ -1,0 +1,5 @@
+{
+  "properties": {
+    "description": "Implement usage policies such as rate limiting and quotas to manage API consumption."
+  }
+}
