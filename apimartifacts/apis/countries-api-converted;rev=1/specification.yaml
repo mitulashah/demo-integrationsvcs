@@ -1,0 +1,921 @@
+openapi: 3.0.1
+info:
+  title: Countries API Converted
+  description: 'This DataFlex Web Service opens up country information. 2 letter ISO codes are used for Country code. There are functions to retrieve the used Currency, Language, Capital City, Continent and Telephone code.'
+  version: '1.0'
+servers:
+  - url: https://apim-demo-integrationsvcs.azure-api.net/countriesjson
+paths:
+  /ListOfContinentsByName:
+    post:
+      summary: ListOfContinentsByName
+      description: Returns a list of continents ordered by name.
+      operationId: 65e571df217d2012f8dd8190
+      requestBody:
+        description: ListOfContinentsByNameSoapRequest
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListOfContinentsByName'
+      responses:
+        '200':
+          description: ListOfContinentsByNameSoapResponse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOfContinentsByNameResponse'
+              example:
+                listOfContinentsByNameResponse:
+                  listOfContinentsByNameResult:
+                    - sCode: sample
+                      sName: sample
+  /ListOfContinentsByCode:
+    post:
+      summary: ListOfContinentsByCode
+      description: Returns a list of continents ordered by code.
+      operationId: 65e571df217d2012f8dd8191
+      requestBody:
+        description: ListOfContinentsByCodeSoapRequest
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListOfContinentsByCode'
+      responses:
+        '200':
+          description: ListOfContinentsByCodeSoapResponse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOfContinentsByCodeResponse'
+              example:
+                listOfContinentsByCodeResponse:
+                  listOfContinentsByCodeResult:
+                    - sCode: sample
+                      sName: sample
+  /ListOfCurrenciesByName:
+    post:
+      summary: ListOfCurrenciesByName
+      description: Returns a list of currencies ordered by name.
+      operationId: 65e571df217d2012f8dd8192
+      requestBody:
+        description: ListOfCurrenciesByNameSoapRequest
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListOfCurrenciesByName'
+      responses:
+        '200':
+          description: ListOfCurrenciesByNameSoapResponse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOfCurrenciesByNameResponse'
+              example:
+                listOfCurrenciesByNameResponse:
+                  listOfCurrenciesByNameResult:
+                    - sISOCode: sample
+                      sName: sample
+  /ListOfCurrenciesByCode:
+    post:
+      summary: ListOfCurrenciesByCode
+      description: Returns a list of currencies ordered by code.
+      operationId: 65e571df217d2012f8dd8193
+      requestBody:
+        description: ListOfCurrenciesByCodeSoapRequest
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListOfCurrenciesByCode'
+      responses:
+        '200':
+          description: ListOfCurrenciesByCodeSoapResponse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOfCurrenciesByCodeResponse'
+              example:
+                listOfCurrenciesByCodeResponse:
+                  listOfCurrenciesByCodeResult:
+                    - sISOCode: sample
+                      sName: sample
+  /ListOfCountryNamesByCode:
+    post:
+      summary: ListOfCountryNamesByCode
+      description: Returns a list of all stored counties ordered by ISO code
+      operationId: 65e571df217d2012f8dd8195
+      requestBody:
+        description: ListOfCountryNamesByCodeSoapRequest
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListOfCountryNamesByCode'
+      responses:
+        '200':
+          description: ListOfCountryNamesByCodeSoapResponse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOfCountryNamesByCodeResponse'
+              example:
+                listOfCountryNamesByCodeResponse:
+                  listOfCountryNamesByCodeResult:
+                    - sISOCode: sample
+                      sName: sample
+  /ListOfCountryNamesByName:
+    post:
+      summary: ListOfCountryNamesByName
+      description: Returns a list of all stored counties ordered by country name
+      operationId: 65e571df217d2012f8dd8196
+      requestBody:
+        description: ListOfCountryNamesByNameSoapRequest
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListOfCountryNamesByName'
+      responses:
+        '200':
+          description: ListOfCountryNamesByNameSoapResponse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOfCountryNamesByNameResponse'
+              example:
+                listOfCountryNamesByNameResponse:
+                  listOfCountryNamesByNameResult:
+                    - sISOCode: sample
+                      sName: sample
+  /ListOfCountryNamesGroupedByContinent:
+    post:
+      summary: ListOfCountryNamesGroupedByContinent
+      description: Returns a list of all stored counties grouped per continent
+      operationId: 65e571df217d2012f8dd8197
+      requestBody:
+        description: ListOfCountryNamesGroupedByContinentSoapRequest
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListOfCountryNamesGroupedByContinent'
+      responses:
+        '200':
+          description: ListOfCountryNamesGroupedByContinentSoapResponse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOfCountryNamesGroupedByContinentResponse'
+              example:
+                listOfCountryNamesGroupedByContinentResponse:
+                  listOfCountryNamesGroupedByContinentResult:
+                    - continent:
+                        sCode: sample
+                        sName: sample
+                      countryCodeAndNames:
+                        - sISOCode: sample
+                          sName: sample
+  /CountryName:
+    post:
+      summary: CountryName
+      description: Searches the database for a country by the passed ISO country code
+      operationId: 65e571df217d2012f8dd8198
+      requestBody:
+        description: CountryNameSoapRequest
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CountryName'
+            example:
+              countryName:
+                sCountryISOCode: sample
+      responses:
+        '200':
+          description: CountryNameSoapResponse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryNameResponse'
+              example:
+                countryNameResponse:
+                  countryNameResult: sample
+  /CountryISOCode:
+    post:
+      summary: CountryISOCode
+      description: This function tries to found a country based on the passed country name.
+      operationId: 65e571df217d2012f8dd8199
+      requestBody:
+        description: CountryISOCodeSoapRequest
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CountryISOCode'
+            example:
+              countryISOCode:
+                sCountryName: sample
+      responses:
+        '200':
+          description: CountryISOCodeSoapResponse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryISOCodeResponse'
+              example:
+                countryISOCodeResponse:
+                  countryISOCodeResult: sample
+  /CapitalCity:
+    post:
+      summary: CapitalCity
+      description: Returns the  name of the captial city for the passed country code
+      operationId: 65e571df217d2012f8dd819a
+      requestBody:
+        description: CapitalCitySoapRequest
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CapitalCity'
+            example:
+              capitalCity:
+                sCountryISOCode: sample
+      responses:
+        '200':
+          description: CapitalCitySoapResponse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CapitalCityResponse'
+              example:
+                capitalCityResponse:
+                  capitalCityResult: sample
+  /CountryCurrency:
+    post:
+      summary: CountryCurrency
+      description: Returns the currency ISO code and name for the passed country ISO code
+      operationId: 65e571df217d2012f8dd819b
+      requestBody:
+        description: CountryCurrencySoapRequest
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CountryCurrency'
+            example:
+              countryCurrency:
+                sCountryISOCode: sample
+      responses:
+        '200':
+          description: CountryCurrencySoapResponse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryCurrencyResponse'
+              example:
+                countryCurrencyResponse:
+                  countryCurrencyResult:
+                    sISOCode: sample
+                    sName: sample
+  /CountryFlag:
+    post:
+      summary: CountryFlag
+      description: Returns a link to a picture of the country flag
+      operationId: 65e571df217d2012f8dd819c
+      requestBody:
+        description: CountryFlagSoapRequest
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CountryFlag'
+            example:
+              countryFlag:
+                sCountryISOCode: sample
+      responses:
+        '200':
+          description: CountryFlagSoapResponse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryFlagResponse'
+              example:
+                countryFlagResponse:
+                  countryFlagResult: sample
+  /CountryIntPhoneCode:
+    post:
+      summary: CountryIntPhoneCode
+      description: Returns the internation phone code for the passed ISO country code
+      operationId: 65e571df217d2012f8dd819d
+      requestBody:
+        description: CountryIntPhoneCodeSoapRequest
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CountryIntPhoneCode'
+            example:
+              countryIntPhoneCode:
+                sCountryISOCode: sample
+      responses:
+        '200':
+          description: CountryIntPhoneCodeSoapResponse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountryIntPhoneCodeResponse'
+              example:
+                countryIntPhoneCodeResponse:
+                  countryIntPhoneCodeResult: sample
+  /FullCountryInfo:
+    post:
+      summary: FullCountryInfo
+      description: Returns a struct with all the stored country information. Pass the ISO country code
+      operationId: 65e571df217d2012f8dd819e
+      requestBody:
+        description: FullCountryInfoSoapRequest
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FullCountryInfo'
+            example:
+              fullCountryInfo:
+                sCountryISOCode: sample
+      responses:
+        '200':
+          description: FullCountryInfoSoapResponse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FullCountryInfoResponse'
+              example:
+                fullCountryInfoResponse:
+                  fullCountryInfoResult:
+                    sISOCode: sample
+                    sName: sample
+                    sCapitalCity: sample
+                    sPhoneCode: sample
+                    sContinentCode: sample
+                    sCurrencyISOCode: sample
+                    sCountryFlag: sample
+                    languages:
+                      - sISOCode: sample
+                        sName: sample
+  /FullCountryInfoAllCountries:
+    post:
+      summary: FullCountryInfoAllCountries
+      description: Returns an array with all countries and all the language information stored
+      operationId: 65e571df217d2012f8dd819f
+      requestBody:
+        description: FullCountryInfoAllCountriesSoapRequest
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FullCountryInfoAllCountries'
+      responses:
+        '200':
+          description: FullCountryInfoAllCountriesSoapResponse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FullCountryInfoAllCountriesResponse'
+              example:
+                fullCountryInfoAllCountriesResponse:
+                  fullCountryInfoAllCountriesResult:
+                    - sISOCode: sample
+                      sName: sample
+                      sCapitalCity: sample
+                      sPhoneCode: sample
+                      sContinentCode: sample
+                      sCurrencyISOCode: sample
+                      sCountryFlag: sample
+                      languages:
+                        - sISOCode: sample
+                          sName: sample
+  /CountriesUsingCurrency:
+    post:
+      summary: CountriesUsingCurrency
+      description: Returns a list of all countries that use the same currency code. Pass a ISO currency code
+      operationId: 65e571df217d2012f8dd81a0
+      requestBody:
+        description: CountriesUsingCurrencySoapRequest
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CountriesUsingCurrency'
+            example:
+              countriesUsingCurrency:
+                sISOCurrencyCode: sample
+      responses:
+        '200':
+          description: CountriesUsingCurrencySoapResponse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountriesUsingCurrencyResponse'
+              example:
+                countriesUsingCurrencyResponse:
+                  countriesUsingCurrencyResult:
+                    - sISOCode: sample
+                      sName: sample
+  /ListOfLanguagesByName:
+    post:
+      summary: ListOfLanguagesByName
+      description: Returns an array of languages ordered by name
+      operationId: 65e571df217d2012f8dd81a1
+      requestBody:
+        description: ListOfLanguagesByNameSoapRequest
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListOfLanguagesByName'
+      responses:
+        '200':
+          description: ListOfLanguagesByNameSoapResponse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOfLanguagesByNameResponse'
+              example:
+                listOfLanguagesByNameResponse:
+                  listOfLanguagesByNameResult:
+                    - sISOCode: sample
+                      sName: sample
+  /ListOfLanguagesByCode:
+    post:
+      summary: ListOfLanguagesByCode
+      description: Returns an array of languages ordered by code
+      operationId: 65e571df217d2012f8dd81a2
+      requestBody:
+        description: ListOfLanguagesByCodeSoapRequest
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListOfLanguagesByCode'
+      responses:
+        '200':
+          description: ListOfLanguagesByCodeSoapResponse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOfLanguagesByCodeResponse'
+              example:
+                listOfLanguagesByCodeResponse:
+                  listOfLanguagesByCodeResult:
+                    - sISOCode: sample
+                      sName: sample
+  /LanguageName:
+    post:
+      summary: LanguageName
+      description: Find a language name based on the passed ISO language code
+      operationId: 65e571df217d2012f8dd81a3
+      requestBody:
+        description: LanguageNameSoapRequest
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LanguageName'
+            example:
+              languageName:
+                sISOCode: sample
+      responses:
+        '200':
+          description: LanguageNameSoapResponse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LanguageNameResponse'
+              example:
+                languageNameResponse:
+                  languageNameResult: sample
+  /LanguageISOCode:
+    post:
+      summary: LanguageISOCode
+      description: Find a language ISO code based on the passed language name
+      operationId: 65e571df217d2012f8dd81a4
+      requestBody:
+        description: LanguageISOCodeSoapRequest
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LanguageISOCode'
+            example:
+              languageISOCode:
+                sLanguageName: sample
+      responses:
+        '200':
+          description: LanguageISOCodeSoapResponse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LanguageISOCodeResponse'
+              example:
+                languageISOCodeResponse:
+                  languageISOCodeResult: sample
+components:
+  schemas:
+    ListOfContinentsByName: { }
+    ListOfContinentsByNameResponse:
+      type: object
+      properties:
+        listOfContinentsByNameResponse:
+          type: object
+          properties:
+            listOfContinentsByNameResult:
+              type: array
+              items:
+                type: object
+                properties:
+                  sCode:
+                    type: string
+                  sName:
+                    type: string
+    ListOfContinentsByCode: { }
+    ListOfContinentsByCodeResponse:
+      type: object
+      properties:
+        listOfContinentsByCodeResponse:
+          type: object
+          properties:
+            listOfContinentsByCodeResult:
+              type: array
+              items:
+                type: object
+                properties:
+                  sCode:
+                    type: string
+                  sName:
+                    type: string
+    ListOfCurrenciesByName: { }
+    ListOfCurrenciesByNameResponse:
+      type: object
+      properties:
+        listOfCurrenciesByNameResponse:
+          type: object
+          properties:
+            listOfCurrenciesByNameResult:
+              type: array
+              items:
+                type: object
+                properties:
+                  sISOCode:
+                    type: string
+                  sName:
+                    type: string
+    ListOfCurrenciesByCode: { }
+    ListOfCurrenciesByCodeResponse:
+      type: object
+      properties:
+        listOfCurrenciesByCodeResponse:
+          type: object
+          properties:
+            listOfCurrenciesByCodeResult:
+              type: array
+              items:
+                type: object
+                properties:
+                  sISOCode:
+                    type: string
+                  sName:
+                    type: string
+    CurrencyName:
+      type: object
+      properties:
+        currencyName:
+          type: object
+          properties:
+            sCurrencyISOCode:
+              type: string
+    CurrencyNameResponse:
+      type: object
+      properties:
+        currencyNameResponse:
+          type: object
+          properties:
+            currencyNameResult:
+              type: string
+    ListOfCountryNamesByCode: { }
+    ListOfCountryNamesByCodeResponse:
+      type: object
+      properties:
+        listOfCountryNamesByCodeResponse:
+          type: object
+          properties:
+            listOfCountryNamesByCodeResult:
+              type: array
+              items:
+                type: object
+                properties:
+                  sISOCode:
+                    type: string
+                  sName:
+                    type: string
+    ListOfCountryNamesByName: { }
+    ListOfCountryNamesByNameResponse:
+      type: object
+      properties:
+        listOfCountryNamesByNameResponse:
+          type: object
+          properties:
+            listOfCountryNamesByNameResult:
+              type: array
+              items:
+                type: object
+                properties:
+                  sISOCode:
+                    type: string
+                  sName:
+                    type: string
+    ListOfCountryNamesGroupedByContinent: { }
+    ListOfCountryNamesGroupedByContinentResponse:
+      type: object
+      properties:
+        listOfCountryNamesGroupedByContinentResponse:
+          type: object
+          properties:
+            listOfCountryNamesGroupedByContinentResult:
+              type: array
+              items:
+                type: object
+                properties:
+                  continent:
+                    type: object
+                    properties:
+                      sCode:
+                        type: string
+                      sName:
+                        type: string
+                  countryCodeAndNames:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        sISOCode:
+                          type: string
+                        sName:
+                          type: string
+    CountryName:
+      type: object
+      properties:
+        countryName:
+          type: object
+          properties:
+            sCountryISOCode:
+              type: string
+    CountryNameResponse:
+      type: object
+      properties:
+        countryNameResponse:
+          type: object
+          properties:
+            countryNameResult:
+              type: string
+    CountryISOCode:
+      type: object
+      properties:
+        countryISOCode:
+          type: object
+          properties:
+            sCountryName:
+              type: string
+    CountryISOCodeResponse:
+      type: object
+      properties:
+        countryISOCodeResponse:
+          type: object
+          properties:
+            countryISOCodeResult:
+              type: string
+    CapitalCity:
+      type: object
+      properties:
+        capitalCity:
+          type: object
+          properties:
+            sCountryISOCode:
+              type: string
+    CapitalCityResponse:
+      type: object
+      properties:
+        capitalCityResponse:
+          type: object
+          properties:
+            capitalCityResult:
+              type: string
+    CountryCurrency:
+      type: object
+      properties:
+        countryCurrency:
+          type: object
+          properties:
+            sCountryISOCode:
+              type: string
+    CountryCurrencyResponse:
+      type: object
+      properties:
+        countryCurrencyResponse:
+          type: object
+          properties:
+            countryCurrencyResult:
+              type: object
+              properties:
+                sISOCode:
+                  type: string
+                sName:
+                  type: string
+    CountryFlag:
+      type: object
+      properties:
+        countryFlag:
+          type: object
+          properties:
+            sCountryISOCode:
+              type: string
+    CountryFlagResponse:
+      type: object
+      properties:
+        countryFlagResponse:
+          type: object
+          properties:
+            countryFlagResult:
+              type: string
+    CountryIntPhoneCode:
+      type: object
+      properties:
+        countryIntPhoneCode:
+          type: object
+          properties:
+            sCountryISOCode:
+              type: string
+    CountryIntPhoneCodeResponse:
+      type: object
+      properties:
+        countryIntPhoneCodeResponse:
+          type: object
+          properties:
+            countryIntPhoneCodeResult:
+              type: string
+    FullCountryInfo:
+      type: object
+      properties:
+        fullCountryInfo:
+          type: object
+          properties:
+            sCountryISOCode:
+              type: string
+    FullCountryInfoResponse:
+      type: object
+      properties:
+        fullCountryInfoResponse:
+          type: object
+          properties:
+            fullCountryInfoResult:
+              type: object
+              properties:
+                sISOCode:
+                  type: string
+                sName:
+                  type: string
+                sCapitalCity:
+                  type: string
+                sPhoneCode:
+                  type: string
+                sContinentCode:
+                  type: string
+                sCurrencyISOCode:
+                  type: string
+                sCountryFlag:
+                  type: string
+                languages:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      sISOCode:
+                        type: string
+                      sName:
+                        type: string
+    FullCountryInfoAllCountries: { }
+    FullCountryInfoAllCountriesResponse:
+      type: object
+      properties:
+        fullCountryInfoAllCountriesResponse:
+          type: object
+          properties:
+            fullCountryInfoAllCountriesResult:
+              type: array
+              items:
+                type: object
+                properties:
+                  sISOCode:
+                    type: string
+                  sName:
+                    type: string
+                  sCapitalCity:
+                    type: string
+                  sPhoneCode:
+                    type: string
+                  sContinentCode:
+                    type: string
+                  sCurrencyISOCode:
+                    type: string
+                  sCountryFlag:
+                    type: string
+                  languages:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        sISOCode:
+                          type: string
+                        sName:
+                          type: string
+    CountriesUsingCurrency:
+      type: object
+      properties:
+        countriesUsingCurrency:
+          type: object
+          properties:
+            sISOCurrencyCode:
+              type: string
+    CountriesUsingCurrencyResponse:
+      type: object
+      properties:
+        countriesUsingCurrencyResponse:
+          type: object
+          properties:
+            countriesUsingCurrencyResult:
+              type: array
+              items:
+                type: object
+                properties:
+                  sISOCode:
+                    type: string
+                  sName:
+                    type: string
+    ListOfLanguagesByName: { }
+    ListOfLanguagesByNameResponse:
+      type: object
+      properties:
+        listOfLanguagesByNameResponse:
+          type: object
+          properties:
+            listOfLanguagesByNameResult:
+              type: array
+              items:
+                type: object
+                properties:
+                  sISOCode:
+                    type: string
+                  sName:
+                    type: string
+    ListOfLanguagesByCode: { }
+    ListOfLanguagesByCodeResponse:
+      type: object
+      properties:
+        listOfLanguagesByCodeResponse:
+          type: object
+          properties:
+            listOfLanguagesByCodeResult:
+              type: array
+              items:
+                type: object
+                properties:
+                  sISOCode:
+                    type: string
+                  sName:
+                    type: string
+    LanguageName:
+      type: object
+      properties:
+        languageName:
+          type: object
+          properties:
+            sISOCode:
+              type: string
+    LanguageNameResponse:
+      type: object
+      properties:
+        languageNameResponse:
+          type: object
+          properties:
+            languageNameResult:
+              type: string
+    LanguageISOCode:
+      type: object
+      properties:
+        languageISOCode:
+          type: object
+          properties:
+            sLanguageName:
+              type: string
+    LanguageISOCodeResponse:
+      type: object
+      properties:
+        languageISOCodeResponse:
+          type: object
+          properties:
+            languageISOCodeResult:
+              type: string
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]

@@ -1,0 +1,19 @@
+{
+  "properties": {
+    "path": "salesorders",
+    "apiRevision": "1",
+    "authenticationSettings": {},
+    "description": "",
+    "isCurrent": true,
+    "displayName": "Sales Orders API",
+    "protocols": [
+      "https"
+    ],
+    "serviceUrl": "https://logic-demo-integrationsvcs.azurewebsites.net/api/wf-demo-integrationsvcs-nocodeapi/triggers/When_a_HTTP_request_is_received/invoke/orderlines?api-version=2022-05-01",
+    "subscriptionKeyParameterNames": {
+      "header": "Ocp-Apim-Subscription-Key",
+      "query": "subscription-key"
+    },
+    "subscriptionRequired": true
+  }
+}

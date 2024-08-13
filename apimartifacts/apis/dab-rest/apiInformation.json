@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "path": "dabrest",
+    "apiRevision": "1",
+    "authenticationSettings": {},
+    "isCurrent": true,
+    "displayName": "Data API Builder - REST Endpoint",
+    "protocols": [
+      "https"
+    ],
+    "serviceUrl": "https://api-demo-dab--u57mr0z.politemoss-3df9a4bc.eastus.azurecontainerapps.io/api",
+    "subscriptionKeyParameterNames": {
+      "header": "Ocp-Apim-Subscription-Key",
+      "query": "subscription-key"
+    },
+    "subscriptionRequired": true
+  }
+}

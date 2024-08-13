@@ -1,0 +1,7 @@
+{
+  "properties": {
+    "displayName": "Internal Devs",
+    "description": "Internal Devs is a custom group, membership is controlled by the operator of the API Management instance",
+    "type": "custom"
+  }
+}
